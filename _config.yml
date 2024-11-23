@@ -22,7 +22,7 @@ plugins:
 # includes:
 #   - assets/js/custom.js
 
-remote_theme: reevafaisal/uno
+remote_theme: reevafaisal/jekyll-theme-minimalistic
 # platforms:
 #   - name: GitHub
 #     icon: <i class="fa-brands fa-github"></i>
