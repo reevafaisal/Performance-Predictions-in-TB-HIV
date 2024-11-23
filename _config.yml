@@ -4,11 +4,11 @@ title: "The predictive power of case detection rate in country-specific mortalit
 #   Senior studying Data Science at University of Michigan - Ann Arbor
 #   Undergraduate researcher at <a href="https://neurocy.notion.site/Future-of-Programming-Lab-241d162461a04064ae1fd9ae32bf4cb1">Future of Programming Lab</a>
 # logo: "Screenshot 2024-10-13 at 4.04.46 PM_batcheditor_fotor.jpg"
-github_button: true
+# github_button: true
 # email: reevaf@umich.edu
 # repository: https://github.com/reevafaisal/reevafaisal.github.io
 # theme: jekyll-theme-minimal
-favicon: true
+# favicon: true
 plugins: 
   - jekyll-remote-theme
 
@@ -16,7 +16,7 @@ plugins:
 #   - jekyll-sitemap  
 #   - jekyll-seo-tag
 #   - jemoji
-color-scheme: light
+# color-scheme: light
 
 # { scroll: false, shallow: true }
 # includes:
@@ -33,17 +33,17 @@ remote_theme: reevafaisal/uno
  # - name: Email 
  #    icon: "<img src='https://img.icons8.com/ios-glyphs/30/000000/new-post.png' alt='Email Icon' style='width: 20px; height: 20px;'>"
  #    link: "mailto:reevaf@umich.com"
-editor.find.cursorMoveOnType: false
-# navigation:
-#   - name: Future of Programming Lab
-#     link: ./index.html#future-of-programming-lab
-#   - name: Insta485 Client-Side Web Application
-#     link: ./index.html#insta485-client-side-web-application
-#   - name: Data Retrieval and Parsing using Web Scraping and APIs
-#     link: ./index.html#data-retrieval-and-parsing-using-web-scraping-and-apis
-#   - name: EDA and Visualizations Toolkit
-#     link: ./index.html#eda-and-visualizations-toolkit
-#   - name: Travelling Salesman Problem
-#     link: ./index.html#travelling-salesman-problem
-#   - name: Pixel Crafter
-#     link: ./index.html#pixel-crafter
+# editor.find.cursorMoveOnType: false
+# # navigation:
+# #   - name: Future of Programming Lab
+# #     link: ./index.html#future-of-programming-lab
+# #   - name: Insta485 Client-Side Web Application
+# #     link: ./index.html#insta485-client-side-web-application
+# #   - name: Data Retrieval and Parsing using Web Scraping and APIs
+# #     link: ./index.html#data-retrieval-and-parsing-using-web-scraping-and-apis
+# #   - name: EDA and Visualizations Toolkit
+# #     link: ./index.html#eda-and-visualizations-toolkit
+# #   - name: Travelling Salesman Problem
+# #     link: ./index.html#travelling-salesman-problem
+# #   - name: Pixel Crafter
+# #     link: ./index.html#pixel-crafter
