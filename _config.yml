@@ -7,10 +7,10 @@ title: " "
 # github_button: true
 # email: reevaf@umich.edu
 # repository: https://github.com/reevafaisal/reevafaisal.github.io
-# theme: jekyll-theme-minimal
+theme: jekyll-theme-minima
 # favicon: true
-plugins: 
-  - jekyll-remote-theme
+# plugins: 
+  # - jekyll-remote-theme
 
 # plugins:
 #   - jekyll-sitemap  
@@ -22,7 +22,7 @@ plugins:
 # includes:
 #   - assets/js/custom.js
 
-remote_theme: reevafaisal/jekyll-theme-minimalistic
+# remote_theme: reevafaisal/jekyll-theme-minimalistic
 # platforms:
 #   - name: GitHub
 #     icon: <i class="fa-brands fa-github"></i>
