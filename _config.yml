@@ -40,10 +40,10 @@ navigation:
   - name: Data Cleaning and Exploratory Data Analysis
     link: ./index.html#data-cleaning-and-exploratory-data-analysis
     sublist:
-    - name: Target variables
-    - link: ./index.html#calculation-of-target-variables
-    - name: MIR_TB vs MIR_TB_HIV
-    - link: ./index.html#mir_tb-vs-mir_tb_hiv
+      - name: Target variables
+      - link: ./index.html#calculation-of-target-variables
+      - name: MIR_TB vs MIR_TB_HIV
+      - link: ./index.html#mir_tb-vs-mir_tb_hiv
   # - name: Data Retrieval and Parsing using Web Scraping and APIs
   #   link: ./index.html#data-retrieval-and-parsing-using-web-scraping-and-apis
   # - name: EDA and Visualizations Toolkit
