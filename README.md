@@ -85,7 +85,7 @@ Through the scatterplot below, we observe that the rate of decrease in the case 
 
 <div style="margin-bottom: 5px;">
   <iframe src="assets/scatter.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
-</div>
+</div> 
 
 
 
