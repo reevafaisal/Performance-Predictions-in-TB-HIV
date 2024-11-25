@@ -67,21 +67,28 @@ These variables will be employed as predictor variables to help analyze the pred
 | Armenia                     |   2013 |                             2976566 |                                     2000 |                                                             170 |                                                                  12 |                                             1500 |                                     4.5  |                                                     66 |                                         95 | 0.113333 |     0.181818 |
 
 
+#### MIR_TB VS MIR_TB_HIV
 
+The closer the MIR is to 1, the higher the mortality rate. From the plots, we can observe that in cases of a dual burden of TB and HIV, MIRs are significantly higher and exhibit more variation compared to MIRs for TB alone. This suggests that, regardless of whether a country has a higher incidence of TB, its healthcare system is less effective at treating patients who are burdened by both TB and HIV.
 
+<style>
+  iframe {
+    display: block; /* Ensures the iframes are treated as block elements */
+    margin-left: 0; /* Aligns them to the left */
+    margin-bottom: 20px; /* Adds space between the two iframes */
+  }
+</style>
 <iframe
   src="assets/MIR_TB.html"
   width="800"
   height="400"
   frameborder="0"
-  margin-left: "0"
 ></iframe>
 <iframe
   src="assets/MIR_TB_HIV.html"
   width="800"
   height="400"
   frameborder="0"
-   margin-left: "0"
 ></iframe>
 
 
