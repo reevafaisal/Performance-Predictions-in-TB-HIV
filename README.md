@@ -74,12 +74,14 @@ These variables will be employed as predictor variables to help analyze the pred
   width="800"
   height="400"
   frameborder="0"
+  margin-left: "0"
 ></iframe>
 <iframe
   src="assets/MIR_TB_HIV.html"
   width="800"
   height="400"
   frameborder="0"
+   margin-left: "0"
 ></iframe>
 
 
