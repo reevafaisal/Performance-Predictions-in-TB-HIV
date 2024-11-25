@@ -45,6 +45,7 @@ The following columns are relevant to our analysis:
 - Small island sovereignties, such as Antigua and Barbuda, Barbados, Bermuda, and others (total: 11), were deemed as outliers by identifying countries where the estimated number of incident cases was lower than the estimated number of deaths from TB. Including these entries could skew the analysis, as their data does not align with trends observed in larger, more populous countries. To maintain analytical cleanliness, these entries were removed from the dataset. 
 - The dataset was further filtered to retain only rows from the year 2013 for each country. This decision was made to focus on a single year, ensuring consistency and comparability across countries.
 - Our final step was to drop all countries that contained no relevant data from the dataset.
+  
 #### Calculation of target variables
 - Variable 1: MIR_TB == mortality of TB / incidence of TB
 ```
@@ -52,7 +53,7 @@ MIR_TB = df['Estimated number of deaths from TB (all forms, excluding HIV)'] / d
 ```
 - Variable 2: MIR_TB_HIV == mortality of (TB & HIV) / incidence of (TB & HIV)
 ```
-mir_TB_HIV = df['Estimated number of deaths from TB in people who are HIV-positive'] / df['Estimated incidence of TB cases who are HIV-positive']
+MIR_TB_HIV = df['Estimated number of deaths from TB in people who are HIV-positive'] / df['Estimated incidence of TB cases who are HIV-positive']
 ```
 
 These variables will be employed as predictor variables to help analyze the predictive power of Case Detection Rate (CDR) in country-specific mortality outcomes for patients with a dual burden of Human Immunodeficiency Viruses (HIV) and Tuberculosis (TB). 
