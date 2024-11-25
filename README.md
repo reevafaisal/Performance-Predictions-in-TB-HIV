@@ -65,7 +65,18 @@ These variables will be employed as predictor variables to help analyze the pred
 | Angola                      |   2013 |                            21471618 |                                    91000 |                                                            6900 |                                                                1600 |                                            69000 |                                    11    |                                                   7500 |                                         85 | 0.1      |     0.213333 |
 | Argentina                   |   2013 |                            41446246 |                                    13000 |                                                             570 |                                                                  44 |                                            10000 |                                     2.7  |                                                    270 |                                         89 | 0.057    |     0.162963 |
 | Armenia                     |   2013 |                             2976566 |                                     2000 |                                                             170 |                                                                  12 |                                             1500 |                                     4.5  |                                                     66 |                                         95 | 0.113333 |     0.181818 |
-
+<iframe
+  src="assets/MIR_TB.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+<iframe
+  src="assets/MIR_TB_HIV.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 
 
