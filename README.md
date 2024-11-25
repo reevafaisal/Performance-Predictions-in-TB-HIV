@@ -80,13 +80,13 @@ The closer the MIR is to 1, the higher the mortality rate. From the plots, we ca
 </style>
 <iframe
   src="assets/MIR_TB.html"
-  width="700"
+  width="800"
   height="400"
   frameborder="0"
 ></iframe>
 <iframe
   src="assets/MIR_TB_HIV.html"
-  width="700"
+  width="800"
   height="400"
   frameborder="0"
 ></iframe>
