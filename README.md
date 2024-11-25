@@ -42,7 +42,7 @@ The following columns are relevant to our analysis:
   
 ### Data Cleaning and Exploratory Data Analysis
 <p>
-Missing values (NaN) for certain years in the dataset were addressed using forward filling (ffill) for each country. This approach assumes that the latest available data is the closest estimate for subsequent missing years. This step preserves temporal continuity and ensures a complete dataset without introducing potential biases from averaging.
+Missing values (NaN) for certain years in the dataset were addressed using forward filling `ffill` for each country. This approach assumes that the latest available data is the closest estimate for subsequent missing years. This step preserves temporal continuity and ensures a complete dataset without introducing potential biases from averaging.
 </p>
 <p>
 Small island sovereignties, such as Antigua and Barbuda, Barbados, Bermuda, and others (total: 11), were identified as outliers by identifying countries where the estimated number of incident cases was lesser than the estimated number of deaths from TB. Including these entries could skew the analysis, as their data does not align with trends observed in larger, more populous countries. To maintain analytical cleanliness, these entries were removed from the dataset. 
