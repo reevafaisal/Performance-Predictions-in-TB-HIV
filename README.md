@@ -41,15 +41,11 @@ The following columns are relevant to our analysis:
    - Estimated number of TB cases (new and existing) per 100,000 population.
   
 ### Data Cleaning and Exploratory Data Analysis
-<p>
-Missing values (NaN) for certain years in the dataset were addressed using forward filling `ffill` for each country. This approach assumes that the latest available data is the closest estimate for subsequent missing years. This step preserves temporal continuity and ensures a complete dataset without introducing potential biases from averaging.
-</p>
-<p>
-Small island sovereignties, such as Antigua and Barbuda, Barbados, Bermuda, and others (total: 11), were identified as outliers by identifying countries where the estimated number of incident cases was lesser than the estimated number of deaths from TB. Including these entries could skew the analysis, as their data does not align with trends observed in larger, more populous countries. To maintain analytical cleanliness, these entries were removed from the dataset. 
-</p>
-<p>
-The dataset was further filtered to retain only rows from the year 2013 for each country. This decision was made to focus on a single year, ensuring consistency and comparability across countries. Our final step was to further drop all countries which contained no data from the dataset.
-</p>
+- Missing values (NaN) for certain years in the dataset were addressed using forward filling `ffill` for each country. This approach assumes that the latest available data is the closest estimate for subsequent missing years and avoids potential biases from averaging.
+- Small island sovereignties, such as Antigua and Barbuda, Barbados, Bermuda, and others (total: 11), were deemed as outliers by identifying countries where the estimated number of incident cases was lower than the estimated number of deaths from TB. Including these entries could skew the analysis, as their data does not align with trends observed in larger, more populous countries. To maintain analytical cleanliness, these entries were removed from the dataset. 
+- The dataset was further filtered to retain only rows from the year 2013 for each country. This decision was made to focus on a single year, ensuring consistency and comparability across countries.
+- Our final step was to further drop all countries that contained no relevant data from the dataset.
+
 
 
 
