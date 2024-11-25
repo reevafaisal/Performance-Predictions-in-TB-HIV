@@ -76,8 +76,15 @@ The closer the MIR is to 1, the higher the mortality rate. From the plots, we ca
     display: block; /* Ensures the iframes are treated as block elements */
     margin-left: 0; /* Aligns them to the left */
     margin-bottom: 20px; /* Adds space between the two iframes */
+    padding-left: 0; /* Remove any left padding */
+  }
+
+  body, html {
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
   }
 </style>
+
 <iframe
   src="assets/MIR_TB.html"
   width="800"
