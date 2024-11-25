@@ -84,7 +84,7 @@ The closer the MIR is to 1, the higher the mortality rate. From the plots below,
 Through the scatterplot below, we observe that the rate of decrease in the case detection rate is much higher in countries with a dual burden of TB and HIV. This suggests that the presence of dual burden cases will have a significant impact on our model, given the strong correlation detected between the case detection rate and mortality outcomes.
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/scatter.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/scatter.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 
