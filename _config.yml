@@ -8,7 +8,7 @@ title: " "
 # email: reevaf@umich.edu
 # repository: https://github.com/reevafaisal/reevafaisal.github.io
 # theme: jekyll-theme-minima
-# favicon: true
+favicon: true 
 plugins: 
   - jekyll-remote-theme
 
