@@ -72,11 +72,11 @@ These variables will be employed as predictor variables to help analyze the pred
 The closer the MIR is to 1, the higher the mortality rate. From the plots below, we can observe that in cases of a dual burden of TB and HIV, MIRs are significantly higher and exhibit more variation compared to MIRs for TB alone. This suggests that, regardless of whether a country has a higher incidence of TB, its healthcare system is less effective at treating patients who are burdened by both TB and HIV.
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/MIR_TB.html" width="100%" height="400px" frameborder="0" scrolling="yes" style="margin-bottom: 5px;"></iframe>
+  <iframe src="assets/MIR_TB.html" width="100%" height="400px" frameborder="0" scrolling="no" style="margin-bottom: 5px;"></iframe>
 </div>
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/MIR_TB_HIV.html" width="100%" height="400px" frameborder="0" scrolling="yes" style="margin-bottom: 5px;"></iframe>
+  <iframe src="assets/MIR_TB_HIV.html" width="100%" height="400px" frameborder="0" scrolling="no" style="margin-bottom: 5px;"></iframe>
 </div>
 
 
