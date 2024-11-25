@@ -12,37 +12,31 @@ The following columns are relevant to our analysis:
    - The name of the country. 
 
 2. **Year**  
-   - The reporting year. 
+   - The reporting year.
 
-3. **Case Detection Rate (CDR)**  
-   - The proportion of new and relapse TB cases detected and notified per year, expressed as a percentage.  
+3. **Population**  
+   - The total population of the country.
+     
+4. **Case Detection Rate (CDR)**  
+   - The proportion of new and relapsed TB cases detected and notified per year, expressed as a percentage.  
    - Independent variable of interest, representing the effectiveness of a country’s TB diagnostic and reporting systems.
 
-4. **Estimated number of deaths from TB (all forms, excluding HIV)**  
+5. **Estimated number of deaths from TB (all forms, excluding HIV)**  
    - Mortality per 100,000 population.
-   - Used to calculate mortality-to-incidence ratio (MIR_TB) for only TB.
+   - Used to calculate Mortality-Incidence Ratio for only TB (MIR_TB).
 
-4. **Estimated number of deaths from TB in people who are HIV-positive**  
+6. **Estimated number of deaths from TB in people who are HIV-positive**  
    - Mortality per 100,000 population.
-   - Used to calculate mortality-to-incidence ratio (MIR_TB) for only TB.
+   - Used to calculate Mortality-Incidence Ratio for only TB (MIR_TB).
 
-5. **Incidence Rate (TB)**
+7. **Estimated number of incident cases (all forms)**
    - Estimated number of TB cases per 100,000 population.
-   - Used to calculate mortality-to-incidence ratio (MIR_TB_HIV) for dual burden of HIV and TB.
+   - Used to calculate Mortality-Incidence Ratio for dual burden of HIV and TB (MIR_TB_HIV).
 
-6. **Incidence Rate (TB/TB & HIV)**
+8. **Estimated incidence of TB cases who are HIV-positive**
    - Estimated number of TB cases among HIV-positive individuals per 100,000 population.
-   - Used to calculate mortality-to-incidence ratio (MIR_TB_HIV) for dual burden of HIV and TB.
+   - Used to calculate Mortality-Incidence Ratio for dual burden of HIV and TB (MIR_TB_HIV).
 
-7. **TB Prevalence Rate**  
+9. **Estimated prevalence of TB (all forms)e**  
    - Estimated number of TB cases (new and existing) per 100,000 population.  
-   - Gives an overview of the TB burden in the population.
-
-8. **HIV Prevalence Rate**  
-   - The estimated number of people living with HIV per 100,000 population.  
-   - Contextualizes the extent of HIV within the population, which is crucial for understanding the dual burden.
-
-9. **TB Mortality Rate (All Causes)**  
-   - Mortality attributable to TB (irrespective of HIV status) per 100,000 population.  
-   - Broader metric for TB’s impact on overall population mortality.
 
