@@ -34,16 +34,16 @@ remote_theme: reevafaisal/jekyll-theme-minimal-new
  #    icon: "<img src='https://img.icons8.com/ios-glyphs/30/000000/new-post.png' alt='Email Icon' style='width: 20px; height: 20px;'>"
  #    link: "mailto:reevaf@umich.com"
 # editor.find.cursorMoveOnType: false
-# # navigation:
-# #   - name: Future of Programming Lab
-# #     link: ./index.html#future-of-programming-lab
-# #   - name: Insta485 Client-Side Web Application
-# #     link: ./index.html#insta485-client-side-web-application
-# #   - name: Data Retrieval and Parsing using Web Scraping and APIs
-# #     link: ./index.html#data-retrieval-and-parsing-using-web-scraping-and-apis
-# #   - name: EDA and Visualizations Toolkit
-# #     link: ./index.html#eda-and-visualizations-toolkit
-# #   - name: Travelling Salesman Problem
-# #     link: ./index.html#travelling-salesman-problem
-# #   - name: Pixel Crafter
-# #     link: ./index.html#pixel-crafter
+navigation:
+  - name: Introduction
+    link: ./index.html#introduction
+  - name: Data Cleaning and Exploratory Data Analysis
+    link: ./index.html#data-cleaning-and-exploratory-data-analysis
+  # - name: Data Retrieval and Parsing using Web Scraping and APIs
+  #   link: ./index.html#data-retrieval-and-parsing-using-web-scraping-and-apis
+  # - name: EDA and Visualizations Toolkit
+  #   link: ./index.html#eda-and-visualizations-toolkit
+  # - name: Travelling Salesman Problem
+  #   link: ./index.html#travelling-salesman-problem
+  # - name: Pixel Crafter
+  #   link: ./index.html#pixel-crafter
