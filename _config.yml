@@ -11,7 +11,7 @@ title: " "
 favicon: true 
 plugins: 
   - jekyll-remote-theme
-
+  
 # plugins:
 #   - jekyll-sitemap  
 #   - jekyll-seo-tag
