@@ -46,10 +46,14 @@ The following columns are relevant to our analysis:
 - The dataset was further filtered to retain only rows from the year 2013 for each country. This decision was made to focus on a single year, ensuring consistency and comparability across countries.
 - Our final step was to drop all countries that contained no relevant data from the dataset.
 #### Calculation of target variables
-- Variable 1: MIR_TB == mortality of TB / incidence of TB 
-`MIR_TB = df['Estimated number of deaths from TB (all forms, excluding HIV)'] / df['Estimated number of incident cases (all forms)']`
+- Variable 1: MIR_TB == mortality of TB / incidence of TB
+```
+MIR_TB = df['Estimated number of deaths from TB (all forms, excluding HIV)'] / df['Estimated number of incident cases (all forms)']
+```
 - Variable 2: MIR_TB_HIV == mortality of (TB & HIV) / incidence of (TB & HIV)
-`mir_TB_HIV = df['Estimated number of deaths from TB in people who are HIV-positive'] / df['Estimated incidence of TB cases who are HIV-positive']`
+```
+mir_TB_HIV = df['Estimated number of deaths from TB in people who are HIV-positive'] / df['Estimated incidence of TB cases who are HIV-positive']
+```
 
 These variables will be employed as predictor variables to help analyze the predictive power of Case Detection Rate (CDR) in country-specific mortality outcomes for patients with a dual burden of Human Immunodeficiency Viruses (HIV) and Tuberculosis (TB). 
 
