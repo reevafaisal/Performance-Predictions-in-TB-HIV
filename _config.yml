@@ -9,7 +9,7 @@ title: " "
 # repository: https://github.com/reevafaisal/reevafaisal.github.io
 # theme: jekyll-theme-minima
 favicon: true 
-plugins: 
+plugins:  
   - jekyll-remote-theme
   
 # plugins:
