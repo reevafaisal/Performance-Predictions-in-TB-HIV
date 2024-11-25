@@ -73,27 +73,27 @@ The closer the MIR is to 1, the higher the mortality rate. From the plots, we ca
 
 <style>
   iframe {
-    display: block; /* Ensures the iframes are treated as block elements */
-    margin-left: 0; /* Aligns them to the left */
-    margin-bottom: 20px; /* Adds space between the two iframes */
-    padding-left: 0; /* Remove any left padding */
+    display: block; /* Ensures each iframe appears on a new line */
+    margin: 0 auto; /* Center the iframes horizontally */
+    padding: 0; /* Removes any padding */
+    border: none; /* Removes the border around the iframe */
   }
-
-  body, html {
-    margin: 0; /* Remove default body margin */
-    padding: 0; /* Remove default body padding */
+  body {
+    margin: 0;
+    padding: 0;
   }
 </style>
 
 <iframe
   src="assets/MIR_TB.html"
-  width="800"
+  width="700"
   height="400"
   frameborder="0"
 ></iframe>
+
 <iframe
   src="assets/MIR_TB_HIV.html"
-  width="800"
+  width="700"
   height="400"
   frameborder="0"
 ></iframe>
