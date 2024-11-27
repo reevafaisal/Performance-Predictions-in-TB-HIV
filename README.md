@@ -96,8 +96,8 @@ df['DPR'] = df['Case detection rate (all forms), percent'] / df['Estimated preva
 grouped_table = df.groupby(['Region']).agg(
     Total_Incidence=('Estimated number of incident cases (all forms)', 'sum'),
     Mean_DPR = ('DPR', 'sum'),
-    Mean_TB_MIR=('mir_TB', 'mean'),
-    Mean_TB_HIV_MIR=('mir_TB_HIV', 'mean')
+    Mean_TB_MIR=('MIR_TB', 'mean'),
+    Mean_TB_HIV_MIR=('MIR_TB_HIV', 'mean')
 ).reset_index()
 ```
 Using the data below, we can see a clear inverse relationship between DPRs and MIRs, demonstrating early detection's critical role in reducing mortality outcomes. Regions like the Americas (AMR) and Europe (EUR), with the highest DPRs (4.478 and 2.153, respectively), report the lowest mean TB MIRs (0.067 and 0.068) and mean TB-HIV MIRs (0.197 and 0.148). This demonstrates how early detection of TB cases, enables timely treatment and lowers mortality rates. Conversely, regions like South-East Asia (SEA) and Eastern Mediterranean (EMR) suffer from significantly low DPRs (0.0063 and 0.226), which align with their relatively high TB MIRs (0.122 and 0.134) and TB-HIV MIRs (0.246 and 0.301). These figures highlight a diagnostic gap, where undetected cases progress to severe or fatal outcomes. Africa (AFR), with a moderate DPR (0.768), still records a high TB-HIV MIR (0.307), reflecting additional challenges in managing the dual burden cases. 
