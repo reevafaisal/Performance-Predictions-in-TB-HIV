@@ -100,6 +100,7 @@ grouped_table = df.groupby(['Region']).agg(
     Mean_TB_HIV_MIR=('MIR_TB_HIV', 'mean')
 ).reset_index()
 ```
+
 | Region   |   Total_Incidence |   Mean_DPR |   Mean_TB_MIR |   Mean_TB_HIV_MIR |
 |:---------|------------------:|-----------:|--------------:|------------------:|
 | AFR      |       2.57845e+06 | 0.76766    |     0.129574  |          0.306569 |
