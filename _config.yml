@@ -48,6 +48,16 @@ navigation:
         link: ./index.html#cdr-vs-mirs
       - name: Detection to Prevalence Ratio
         link: ./index.html#detection-to-prevalence-ration-(dpr)
+  - name: Framing a Prediction Problem
+  - link: ./index.html#framing-a-prediction-problem
+    sublist:
+      - name: Problem Type
+      - link: ./index.html#problem-type
+      - name: Features for Prediction
+      - link: ./index.html#features-for-prediction
+      - name: Evaluation Metrics
+      - link: ./index.html#evaluation-metrics
+  
              
   # - name: Data Retrieval and Parsing using Web Scraping and APIs
   #   link: ./index.html#data-retrieval-and-parsing-using-web-scraping-and-apis
