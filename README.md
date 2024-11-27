@@ -100,6 +100,9 @@ grouped_table = df.groupby(['Region']).agg(
     Mean_TB_HIV_MIR=('MIR_TB_HIV', 'mean')
 ).reset_index()
 ```
+- Using the data above, we can see a clear inverse relationship between DPRs and MIRs, demonstrating early detection's critical role in reducing mortality outcomes. Regions like the Americas (AMR) and Europe (EUR), with the highest DPRs (4.478 and 2.153, respectively), report the lowest mean TB MIRs (0.067 and 0.068) and mean TB-HIV MIRs (0.197 and 0.148). This demonstrates how early detection of TB cases, enables timely treatment and lowers mortality rates. 
+- Conversely, regions like South-East Asia (SEA) and Eastern Mediterranean (EMR) suffer from significantly low DPRs (0.0063 and 0.226), which align with their relatively high TB MIRs (0.122 and 0.134) and TB-HIV MIRs (0.246 and 0.301).
+- These figures highlight a diagnostic gap, where undetected cases progress to severe or fatal outcomes. Africa (AFR), with a moderate DPR (0.768), still records a high TB-HIV MIR (0.307), reflecting additional challenges in managing the dual burden cases. 
 
 | Region   |   Total_Incidence |   Mean_DPR |   Mean_TB_MIR |   Mean_TB_HIV_MIR |
 |:---------|------------------:|-----------:|--------------:|------------------:|
@@ -111,8 +114,6 @@ grouped_table = df.groupby(['Region']).agg(
 | WPR      |       1.60893e+06 | 0.345882   |     0.0853927 |          0.170309 |
 
 
-- Using the data above, we can see a clear inverse relationship between DPRs and MIRs, demonstrating early detection's critical role in reducing mortality outcomes. Regions like the Americas (AMR) and Europe (EUR), with the highest DPRs (4.478 and 2.153, respectively), report the lowest mean TB MIRs (0.067 and 0.068) and mean TB-HIV MIRs (0.197 and 0.148). This demonstrates how early detection of TB cases, enables timely treatment and lowers mortality rates. 
-- Conversely, regions like South-East Asia (SEA) and Eastern Mediterranean (EMR) suffer from significantly low DPRs (0.0063 and 0.226), which align with their relatively high TB MIRs (0.122 and 0.134) and TB-HIV MIRs (0.246 and 0.301). These figures highlight a diagnostic gap, where undetected cases progress to severe or fatal outcomes. Africa (AFR), with a moderate DPR (0.768), still records a high TB-HIV MIR (0.307), reflecting additional challenges in managing the dual burden cases. 
 
 
 
