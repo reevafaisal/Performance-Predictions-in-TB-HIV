@@ -143,7 +143,7 @@ df['MIR_TB_quartile'] = pd.qcut(df['MIR_TB'], q=4, labels=[1, 2, 3, 4])
 df['MIR_TB_HIV_quartile'] = pd.qcut(df['MIR_TB_HIV'], q=4, labels=[1, 2, 3, 4])
 ```
 
-**Logistic Regression**
+**Defining the Logistic Regression model**
 ```
 preprocessor = ColumnTransformer(
     transformers=[
@@ -152,7 +152,6 @@ preprocessor = ColumnTransformer(
     ]
 )
 
-# Define the logistic regression model
 logistic_model = LogisticRegression(
     multi_class="multinomial",  
     solver="lbfgs",  
