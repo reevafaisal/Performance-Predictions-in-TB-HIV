@@ -42,7 +42,7 @@ navigation:
     sublist:
       - name: Target variables
         link: ./index.html#calculation-of-target-variables
-      - name: MIR_TB vs MIR_TB_HIV
+      - name: MIR TB vs MIR TB-HIV
         link: ./index.html#mir_tb-vs-mir_tb_hiv
       - name: CDR vs MIRs
         link: ./index.html#cdr-vs-mirs
