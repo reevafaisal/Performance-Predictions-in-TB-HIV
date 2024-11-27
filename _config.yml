@@ -47,9 +47,9 @@ navigation:
       - name: CDR vs MIRs
         link: ./index.html#cdr-vs-mirs
       - name: Detection to Prevalence Ratio
-        link: ./index.html#detection-to-prevalence-ration-(dpr)
+        link: ./index.html#detection-to-prevalence-ratio-(dpr)
   - name: Framing a Prediction Problem
-  - link: ./index.html#framing-a-prediction-problem
+    link: ./index.html#framing-a-prediction-problem
     sublist:
       - name: Problem Type
         link: ./index.html#problem-type
@@ -59,6 +59,11 @@ navigation:
         link: ./index.html#evaluation-metrics
   - name: Baseline Model
     link: ./index.html#baseline-model
+    sublist:
+      - name: MIR TB
+        link: ./index.html#mir-tb
+      - name: MIR TB-HIV
+        link: ./index.html#mir-tb-hiv
   
              
   # - name: Data Retrieval and Parsing using Web Scraping and APIs
