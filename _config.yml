@@ -8,7 +8,7 @@ description: by [Reeva Faisal](https://github.com/reevafaisal/reevafaisal.github
 # theme: jekyll-theme-minima
 favicon: true 
 plugins:  
-  - jekyll-remote-theme
+  - jekyll-remote-theme 
   
 # plugins:
 #   - jekyll-sitemap  
