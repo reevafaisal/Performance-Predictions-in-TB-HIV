@@ -52,11 +52,11 @@ navigation:
   - link: ./index.html#framing-a-prediction-problem
     sublist:
       - name: Problem Type
-      - link: ./index.html#problem-type
+        link: ./index.html#problem-type
       - name: Features for Prediction
-      - link: ./index.html#features-for-prediction
+        link: ./index.html#features-for-prediction
       - name: Evaluation Metrics
-      - link: ./index.html#evaluation-metrics
+        link: ./index.html#evaluation-metrics
   
              
   # - name: Data Retrieval and Parsing using Web Scraping and APIs
