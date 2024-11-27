@@ -57,6 +57,8 @@ navigation:
         link: ./index.html#features-for-prediction
       - name: Evaluation Metrics
         link: ./index.html#evaluation-metrics
+  - name: Baseline Model
+    link: ./index.html#baseline-model
   
              
   # - name: Data Retrieval and Parsing using Web Scraping and APIs
