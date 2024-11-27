@@ -147,6 +147,24 @@ df['MIR_TB_HIV_quartile'] = pd.qcut(df['MIR_TB_HIV'], q=4, labels=[1, 2, 3, 4])
 X = df[['Country or territory name', 'Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent']]
 y = df[['MIR_TB_quartile']]
 ```
+
+**Logistic Regression**
+```
+preprocessor = ColumnTransformer(
+    transformers=[
+        ("num", numeric_transformer, numeric_features),
+        ("cat", categorical_transformer, categorical_features)
+    ]
+)
+
+# Define the logistic regression model
+logistic_model = LogisticRegression(
+    multi_class="multinomial",  
+    solver="lbfgs",  
+    max_iter=500
+)
+```
+
 - **Model 1: MIR TB with CDR**
    ```
    numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent'] 
