@@ -119,7 +119,7 @@ grouped_table = df.groupby(['Region']).agg(
 The goal of this analysis is to evaluate **the predictive power of CDR in determining country-specific mortality outcomes for patients experiencing a dual burden of Human HIV and TB**.
 
 #### Problem Type
-- This is a multiclass classification problem. The response variables represent MIRs for TB only and TB-HIV patients, binned into quartiles to capture varying mortality levels. These quartiles represent the levels of mortality risk in countries, making this a classification problem with four classes.
+- This is a multiclass classification problem. The response variables represent MIRs for TB only and TB-HIV patients, binned into quartiles to capture varying mortality levels. These quartiles represent the levels of mortality risk in countries, making this a logistic regression problem with four categories.
 - The response variables are the quartiles of TB MIR (`MIR_TB_quartile`) and TB-HIV MIR (`MIR_TB_HIV_quartile`), derived from the distribution of mortality-to-incidence ratios for TB only and TB-HIV patients. These variables were chosen because they capture the gradient of mortality risk across countries, enabling nuanced predictions rather than a binary outcome.
 
 #### Features for Prediction
@@ -133,8 +133,47 @@ The goal of this analysis is to evaluate **the predictive power of CDR in determ
    - **specificity** ensures that resources are not wasted on false alarms as it prevents over-prediction, and evaluates the ability to correctly exclude countries not in a specific quartile.
    - **Precision** indicates the proportion of correctly identified instances for each quartile, reducing false positives, and is prioritized over **accuracy** which is less informative in imbalanced data settings (such as in our population level data).
    - **F1-Score** accounts for both false positives and false negatives, making it ideal for imbalanced datasets.
-   - **AUC** evaluates the model's ability to distinguish between classes by considering its performance across all possible decision thresholds which is useful to address the performance of our model.
+   - **AUC** evaluates the model's ability to distinguish between categories by considering its performance across all possible decision thresholds which is useful to address the performance of our model.
 
+### Baseline Model
+
+To prepare the data for performing the logistic regression, I binned the MIRs by percentiles so as not to under-assign or over-assign values to specific bins.
+```
+df['MIR_TB_quartile'] = pd.qcut(df['MIR_TB'], q=4, labels=[1, 2, 3, 4])
+df['MIR_TB_HIV_quartile'] = pd.qcut(df['MIR_TB_HIV'], q=4, labels=[1, 2, 3, 4])
+```
+
+**Features Used**:
+**MIR TB**
+```
+X = df[['Country or territory name', 'Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent']]
+y = df[['MIR_TB_quartile']]
+```
+- Model 1: MIR TB with CDR
+   ```
+   numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent'] 
+   categorical_features = ['Country or territory name'] 
+   ```
+- Model 2: MIR TB without CDR
+   ```
+   numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)'] 
+   categorical_features = ['Country or territory name'] 
+   ```
+**MIR TB-HIV**
+```
+X = df[['Country or territory name', 'Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent']]
+y = df[['MIR_TB_HIV_quartile']]
+```
+- Model 1: MIR TB with CDR
+   ```
+   numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent'] 
+   categorical_features = ['Country or territory name'] 
+   ```
+- Model 2: MIR TB without CDR
+   ```
+   numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)'] 
+   categorical_features = ['Country or territory name'] 
+   ```
 
 
 
