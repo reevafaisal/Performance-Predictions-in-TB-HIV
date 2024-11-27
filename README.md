@@ -41,7 +41,7 @@ The following columns are relevant to the analysis:
    - Estimated number of TB cases (new and existing) per 100,000 population.
   
 ### Data Cleaning and Exploratory Data Analysis
-- Missing values (NaN) for certain years in the dataset were addressed using forward filling `ffill` for each country. This approach assumes that the latest available data is the closest estimate for subsequent missing years and avoids potential biases from averaging.
+- Missing values (NaN) for certain years in the dataset were addressed using forward filling (`ffill`) for each country. This approach assumes that the latest available data is the closest estimate for subsequent missing years and avoids potential biases from averaging.
 - Small island sovereignties, such as Antigua and Barbuda, Barbados, Bermuda, and others (total: 11), were deemed as outliers by identifying countries where the estimated number of incident cases was lower than the estimated number of deaths from TB. Including these entries could skew the analysis, as their data does not align with trends observed in larger, more populous countries. To maintain analytical cleanliness, these entries were removed from the dataset. 
 - The dataset was further filtered to retain only rows from the year 2013 for each country. This decision was made to focus on a single year, ensuring consistency and comparability across countries.
 - Our final step was to drop all countries that contained no relevant data from the dataset.
@@ -79,7 +79,7 @@ The closer the MIR is to 1, the higher the mortality rate. From the plots below,
   <iframe src="assets/MIR_TB_HIV.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
-### CDR vs MIRs
+#### CDR vs MIRs
 
 Through the scatterplot below, we observe that the rate of decrease in the case detection rate is much higher in countries with a dual burden of TB and HIV. This suggests that the presence of dual burden cases will have a significant impact on our model, given the strong correlation detected between the case detection rate and mortality outcomes.
 
@@ -87,7 +87,7 @@ Through the scatterplot below, we observe that the rate of decrease in the case 
   <iframe src="assets/Scatter.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div> 
 
-### Detection to Prevalence Ratio (DPR)
+#### Detection to Prevalence Ratio (DPR)
 
 To provide some more insight, I calculated DPRs and grouped them by region to understand the relationships between MIRs and DPRs amongst different regions.
 
@@ -113,8 +113,17 @@ grouped_table = df.groupby(['Region']).agg(
 - Conversely, regions like South-East Asia (SEA) and Eastern Mediterranean (EMR) suffer from significantly low DPRs (0.0063 and 0.226), which align with their relatively high TB MIRs (0.122 and 0.134) and TB-HIV MIRs (0.246 and 0.301).
 - These figures highlight a diagnostic gap, where undetected cases progress to severe or fatal outcomes. Africa (AFR), with a moderate DPR (0.768), still records a high TB-HIV MIR (0.307), reflecting additional challenges in managing the dual burden cases. 
 
+### Framing a Prediction Problem
 
+The goal of this analysis is to evaluate **the predictive power of CDR in determining country-specific mortality outcomes for patients experiencing a dual burden of Human HIV and TB**.
 
+- This is a multiclass classification problem. The response variables represent MIRs for TB only and TB-HIV patients, binned into quartiles to capture varying mortality levels. These quartiles represent the levels of mortality risk in countries, making this a classification problem with four classes.
+- The response variables are the quartiles of TB MIR (`MIR_TB_quartile`) and TB-HIV MIR (`MIR_TB_HIV_quartile`), derived from the distribution of mortality-to-incidence ratios for TB only and TB-HIV patients. These variables were chosen because they capture the gradient of mortality risk across countries, enabling nuanced predictions rather than a binary outcome.
+- The evaluation metrics used to evaluate the performance of our model are: sensitivity, specificity, precision, Area Under Curve (AUC), and F1-Score.
+   - **Sensitivity** evades false negatives as false negatives can have severe public health implications, and **specificity** ensures that resources are not wasted on false alarms as it prevents over-prediction.
+   - **Precision** indicates the proportion of correctly identified instances for each quartile, reducing false positives, and is prioritized over **accuracy** which is less informative in imbalanced data settings (such as in our population level data).
+   - **F1-Score** accounts for both false positives and false negatives, making it ideal for imbalanced datasets.
+   - **AUC** evaluates the model's ability to distinguish between classes by considering its performance across all possible decision thresholds which is useful to address the performance of our model.
 
 
 
