@@ -118,13 +118,24 @@ grouped_table = df.groupby(['Region']).agg(
 
 The goal of this analysis is to evaluate **the predictive power of CDR in determining country-specific mortality outcomes for patients experiencing a dual burden of Human HIV and TB**.
 
+#### Problem Type
 - This is a multiclass classification problem. The response variables represent MIRs for TB only and TB-HIV patients, binned into quartiles to capture varying mortality levels. These quartiles represent the levels of mortality risk in countries, making this a classification problem with four classes.
 - The response variables are the quartiles of TB MIR (`MIR_TB_quartile`) and TB-HIV MIR (`MIR_TB_HIV_quartile`), derived from the distribution of mortality-to-incidence ratios for TB only and TB-HIV patients. These variables were chosen because they capture the gradient of mortality risk across countries, enabling nuanced predictions rather than a binary outcome.
-- The evaluation metrics used to evaluate the performance of our model are: sensitivity, specificity, precision, Area Under Curve (AUC), and F1-Score.
-   - **Sensitivity** evades false negatives as false negatives can have severe public health implications, and **specificity** ensures that resources are not wasted on false alarms as it prevents over-prediction.
+
+#### Features for Prediction
+- **Country or territory name**: To control for geographical disparities.
+- **Estimated Total Population Number**: Accounts for variations in country size.
+- **Case detection rate (all forms), percent**: The primary feature of interest, as it reflects the capacity to diagnose cases early, which is hypothesized to lower mortality rates.
+
+#### Evaluation Metrics
+- The evaluation metrics used to evaluate the performance of our model are:
+   - **Sensitivity** measures the ability to correctly identify countries in each mortality quartile, and evades false negatives. Prioritized as false negatives can have severe public health implications.
+   - **specificity** ensures that resources are not wasted on false alarms as it prevents over-prediction, and evaluates the ability to correctly exclude countries not in a specific quartile.
    - **Precision** indicates the proportion of correctly identified instances for each quartile, reducing false positives, and is prioritized over **accuracy** which is less informative in imbalanced data settings (such as in our population level data).
    - **F1-Score** accounts for both false positives and false negatives, making it ideal for imbalanced datasets.
    - **AUC** evaluates the model's ability to distinguish between classes by considering its performance across all possible decision thresholds which is useful to address the performance of our model.
+
+
 
 
 
