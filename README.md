@@ -129,8 +129,8 @@ The goal of this analysis is to evaluate **the predictive power of CDR in determ
 
 #### Evaluation Metrics
 - The evaluation metrics used to evaluate the performance of our model are:
-   - **Sensitivity** measures the ability to correctly identify countries in each mortality quartile, and evades false negatives. Prioritized as false negatives can have severe public health implications.
-   - **specificity** ensures that resources are not wasted on false alarms as it prevents over-prediction, and evaluates the ability to correctly exclude countries not in a specific quartile.
+   - **Sensitivity (Recall)** measures the ability to correctly identify countries in each mortality quartile, and evades false negatives. Prioritized as false negatives can have severe public health implications.
+   - **Specificity** ensures that resources are not wasted on false alarms as it prevents over-prediction, and evaluates the ability to correctly exclude countries not in a specific quartile.
    - **Precision** indicates the proportion of correctly identified instances for each quartile, reducing false positives, and is prioritized over **accuracy** which is less informative in imbalanced data settings (such as in our population level data).
    - **F1-Score** accounts for both false positives and false negatives, making it ideal for imbalanced datasets.
    - **AUC** evaluates the model's ability to distinguish between categories by considering its performance across all possible decision thresholds which is useful to address the performance of our model.
@@ -154,11 +154,30 @@ y = df[['MIR_TB_quartile']]
    numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent'] 
    categorical_features = ['Country or territory name'] 
    ```
+
+   |   Class |   Precision |   Recall |   F1-Score |   Sensitivity |   Specificity |   Macro-Average AUC |
+   |--------:|------------:|---------:|-----------:|--------------:|--------------:|--------------------:|
+   |       1 |    0.285714 | 0.8      |   0.421053 |      0.8      |      0.565217 |            0.616925 |
+   |       2 |    0.5      | 0.285714 |   0.363636 |      0.285714 |      0.904762 |            0.616925 |
+   |       3 |    0        | 0        |   0        |      0        |      0.85     |            0.616925 |
+   |       4 |    0.571429 | 0.5      |   0.533333 |      0.5      |      0.85     |            0.616925 |
+  
+Selection deleted
+
 - Model 2: MIR TB without CDR
    ```
    numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)'] 
    categorical_features = ['Country or territory name'] 
    ```
+   
+   |   Class |   Precision |   Recall |   F1-Score |   Sensitivity |   Specificity |   Macro-Average AUC |
+   |--------:|------------:|---------:|-----------:|--------------:|--------------:|--------------------:|
+   |       1 |    0.190476 | 0.8      |   0.307692 |      0.8      |      0.26087  |            0.601269 |
+   |       2 |    0.666667 | 0.285714 |   0.4      |      0.285714 |      0.952381 |            0.601269 |
+   |       3 |    0        | 0        |   0        |      0        |      0.9      |            0.601269 |
+   |       4 |    0        | 0        |   0        |      0        |      0.9      |            0.601269 |
+  
+
 **MIR TB-HIV**
 ```
 X = df[['Country or territory name', 'Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent']]
@@ -169,12 +188,29 @@ y = df[['MIR_TB_HIV_quartile']]
    numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent'] 
    categorical_features = ['Country or territory name'] 
    ```
+   
+   |   Class |   Precision |   Recall |   F1-Score |   Sensitivity |   Specificity |   Macro-Average AUC |
+   |--------:|------------:|---------:|-----------:|--------------:|--------------:|--------------------:|
+   |       1 |    0.538462 | 0.875    |   0.666667 |      0.875    |      0.7      |            0.844905 |
+   |       2 |    0.75     | 0.375    |   0.5      |      0.375    |      0.95     |            0.844905 |
+   |       3 |    0.6      | 0.6      |   0.6      |      0.6      |      0.913043 |            0.844905 |
+   |       4 |    1        | 0.857143 |   0.923077 |      0.857143 |      1        |            0.844905 |
+  
 - Model 2: MIR TB without CDR
    ```
    numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)'] 
    categorical_features = ['Country or territory name'] 
    ```
+   
+   |   Class |   Precision |   Recall |   F1-Score |   Sensitivity |   Specificity |   Macro-Average AUC |
+   |--------:|------------:|---------:|-----------:|--------------:|--------------:|--------------------:|
+   |       1 |    0.411765 |    0.875 |   0.56     |         0.875 |      0.5      |            0.665589 |
+   |       2 |    0        |    0     |   0        |         0     |      0.9      |            0.665589 |
+   |       3 |    0.222222 |    0.4   |   0.285714 |         0.4   |      0.695652 |            0.665589 |
+   |       4 |    0        |    0     |   0        |         0     |      1        |            0.665589 |
 
+
+  
 
 
 
