@@ -5,7 +5,7 @@
 The dataset, [Tuberculosis Burden by Country](https://public.tableau.com/app/sample-data/TB_Burden_Country.csv?_gl=1*jep8cy*_ga*MTk5ODg2MTIzMi4xNzMxOTM4NzQx*_ga_8YLN0SNXVS*MTczMjU0MjY2OS42LjEuMTczMjU0MjgyNC4wLjAuMA..), focuses on the global burden of TB across various countries, with an emphasis on its intersection with HIV. The data provides a detailed overview of country-specific TB burden indicators, which are critical for understanding the public health challenges related to TB and its co-morbidities, including HIV. 
 <p>
 Before any cleaning, the dataset contains 5120 rows. 
-The following columns are relevant to our analysis:
+The following columns are relevant to the analysis:
 </p>
 
 1. **Country or territory name**  
@@ -86,6 +86,32 @@ Through the scatterplot below, we observe that the rate of decrease in the case 
 <div style="margin-bottom: 5px;">
   <iframe src="assets/Scatter.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div> 
+
+### Detection to Prevalence Ratio (DPR)
+
+To provide some more insight, I calculated DPRs and grouped them by region to understand the relationships between MIRs and DPRs amongst different regions.
+
+```
+df['DPR'] = df['Case detection rate (all forms), percent'] / df['Estimated prevalence of TB (all forms)']
+grouped_table = df.groupby(['Region']).agg(
+    Total_Incidence=('Estimated number of incident cases (all forms)', 'sum'),
+    Mean_DPR = ('DPR', 'sum'),
+    Mean_TB_MIR=('mir_TB', 'mean'),
+    Mean_TB_HIV_MIR=('mir_TB_HIV', 'mean')
+).reset_index()
+```
+Using the data below, we can see a clear inverse relationship between DPRs and MIRs, demonstrating early detection's critical role in reducing mortality outcomes. Regions like the Americas (AMR) and Europe (EUR), with the highest DPRs (4.478 and 2.153, respectively), report the lowest mean TB MIRs (0.067 and 0.068) and mean TB-HIV MIRs (0.197 and 0.148). This demonstrates how early detection of TB cases, enables timely treatment and lowers mortality rates. Conversely, regions like South-East Asia (SEA) and Eastern Mediterranean (EMR) suffer from significantly low DPRs (0.0063 and 0.226), which align with their relatively high TB MIRs (0.122 and 0.134) and TB-HIV MIRs (0.246 and 0.301). These figures highlight a diagnostic gap, where undetected cases progress to severe or fatal outcomes. Africa (AFR), with a moderate DPR (0.768), still records a high TB-HIV MIR (0.307), reflecting additional challenges in managing the dual burden cases. 
+
+| Region   |   Total_Incidence |   Mean_DPR |   Mean_TB_MIR |   Mean_TB_HIV_MIR |
+|:---------|------------------:|-----------:|--------------:|------------------:|
+| AFR      |       2.57845e+06 | 0.76766    |     0.129574  |          0.306569 |
+| AMR      |  285057           | 4.47835    |     0.0670003 |          0.196754 |
+| EMR      |  713290           | 0.226031   |     0.133612  |          0.300686 |
+| EUR      |  350150           | 2.1533     |     0.0684857 |          0.148143 |
+| SEA      |       3.357e+06   | 0.00630488 |     0.121748  |          0.246023 |
+| WPR      |       1.60893e+06 | 0.345882   |     0.0853927 |          0.170309 |
+
+
 
 
 
