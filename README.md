@@ -142,11 +142,6 @@ To prepare the data for performing the logistic regression, I binned the MIRs by
 df['MIR_TB_quartile'] = pd.qcut(df['MIR_TB'], q=4, labels=[1, 2, 3, 4])
 df['MIR_TB_HIV_quartile'] = pd.qcut(df['MIR_TB_HIV'], q=4, labels=[1, 2, 3, 4])
 ```
-#### MIR TB
-```
-X = df[['Country or territory name', 'Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent']]
-y = df[['MIR_TB_quartile']]
-```
 
 **Logistic Regression**
 ```
@@ -163,6 +158,12 @@ logistic_model = LogisticRegression(
     solver="lbfgs",  
     max_iter=500
 )
+```
+
+#### MIR TB
+```
+X = df[['Country or territory name', 'Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent']]
+y = df[['MIR_TB_quartile']]
 ```
 
 - **Model 1: MIR TB with CDR**
