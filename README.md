@@ -226,7 +226,7 @@ y = df[['MIR_TB_HIV_quartile']]
 ### Final Model
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/three_graphs.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/three_graphs.html" width="800" height="350px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div> 
 
 Through the above visualization, we can see that the total population and TB prevalence are extremely right-skewed. Since log-transformations are efficient in normalizing right-skewed data, I have used them to transform those columns. Since the CDR, however, is skewed in the other direction, I have used a quantile transformer to transform it into a uniform distribution. These transformations will ensure our data is less skewed and more robust to outliers.
