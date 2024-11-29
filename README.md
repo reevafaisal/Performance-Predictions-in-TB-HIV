@@ -244,6 +244,30 @@ numeric_transformer = ColumnTransformer(
 )
 ```
 
+#### Modeling Algorithm
+- For this task, we used Logistic Regression as the modeling algorithm, leveraging its suitability for multiclass classification through softmax regression.
+- I used GridSearchCV,to select the hyper parameters. This method performs cross-validation (2-fold in our case) for each combination of hyperparameters and evaluates performance using an AUC scorer.
+```
+param_grid = {
+    "logistic__C": [0.01, 0.1, 1, 10, 100],  
+    "logistic__solver": ["lbfgs", "liblinear"],  
+    "logistic__penalty": ["l1", "l2"],  
+    "logistic__multi_class": ["ovr", "multinomial"], 
+    "logistic__max_iter": [100, 200, 500]  
+}
+
+auc_scorer = make_scorer(roc_auc_score, needs_proba=True, multi_class="ovr", average="macro")
+
+grid_search = GridSearchCV(
+    estimator=pipeline,
+    param_grid=param_grid,
+    cv=2,  # 2-fold cross-validation
+    scoring=auc_scorer,  # Use accuracy for evaluation
+    verbose=1,  # Display progress
+    n_jobs=-1  # Use all available cores
+)
+``
+
 #### New MIR TB
 ```
 X = df[['Country or territory name', 'Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent']]
@@ -263,6 +287,12 @@ y = df[['MIR_TB_quartile']]
    |       3 |       0     |    0     |      0     |         0     |         1     |               0.686 |
    |       4 |       0.6   |    0.75  |      0.667 |         0.75  |         0.8   |               0.686 |
 
+   Best performing hyperparameters:
+   ```
+   {'logistic__C': 0.1, 'logistic__max_iter': 100, 'logistic__multi_class': 'ovr', 'logistic__penalty': 'l1', 'logistic__solver': 'liblinear'}
+   ```
+
+
 - Model 2: MIR TB without CDR
    ```
    numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)'] 
@@ -275,6 +305,11 @@ y = df[['MIR_TB_quartile']]
    |       2 |       0     |     0    |      0     |          0    |         1     |               0.593 |
    |       3 |       0     |     0    |      0     |          0    |         1     |               0.593 |
    |       4 |       0.429 |     0.75 |      0.545 |          0.75 |         0.6   |               0.593 |
+
+   Best performing hyperparameters:
+   ```
+   {'logistic__C': 0.1, 'logistic__max_iter': 100, 'logistic__multi_class': 'ovr', 'logistic__penalty': 'l1', 'logistic__solver': 'liblinear'}
+   ```
 
 #### New MIR TB-HIV
 ```
@@ -293,6 +328,11 @@ y = df[['MIR_TB_HIV_quartile']]
    |       2 |       0.5   |    0.75  |      0.6   |         0.75  |         0.7   |               0.869 |
    |       3 |       0.5   |    0.4   |      0.444 |         0.4   |         0.913 |               0.869 |
    |       4 |       1     |    0.857 |      0.923 |         0.857 |         1     |               0.869 |
+
+   Best performing hyperparameters:
+   ```
+   {'logistic__C': 100, 'logistic__max_iter': 500, 'logistic__multi_class': 'multinomial', 'logistic__penalty': 'l2', 'logistic__solver': 'lbfgs'}
+   ```
   
 - Model 2: MIR TB-HIV without CDR
    ```
@@ -306,6 +346,18 @@ y = df[['MIR_TB_HIV_quartile']]
    |       2 |       0.286 |    0.25  |      0.267 |         0.25  |         0.75  |               0.709 |
    |       3 |       0.25  |    0.2   |      0.222 |         0.2   |         0.87  |               0.709 |
    |       4 |       0.625 |    0.714 |      0.667 |         0.714 |         0.857 |               0.709 |
+
+   Best performing hyperparameters:
+   ```
+   {'logistic__C': 100, 'logistic__max_iter': 100, 'logistic__multi_class': 'ovr', 'logistic__penalty': 'l2', 'logistic__solver': 'lbfgs'}
+   ```
+
+
+
+
+
+
+
 
 
   
