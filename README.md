@@ -266,7 +266,7 @@ grid_search = GridSearchCV(
     verbose=1,  # Display progress
     n_jobs=-1  # Use all available cores
 )
-``
+```
 
 #### New MIR TB
 ```
