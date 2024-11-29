@@ -65,6 +65,8 @@ navigation:
   - name: Final Model
     link: ./index.html#final-model
     sublist:
+      - name: Modeling Algorithm
+        link: ./index.html#modeling-algorithm
       - name: New MIR TB
         link: ./index.html#new-mir-tb
       - name: New MIR TB-HIV
