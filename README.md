@@ -244,7 +244,7 @@ numeric_transformer = ColumnTransformer(
 )
 ```
 
-#### MIR TB
+#### New MIR TB
 ```
 X = df[['Country or territory name', 'Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent']]
 y = df[['MIR_TB_quartile']]
@@ -276,7 +276,7 @@ y = df[['MIR_TB_quartile']]
    |       3 |       0     |     0    |      0     |          0    |         1     |               0.593 |
    |       4 |       0.429 |     0.75 |      0.545 |          0.75 |         0.6   |               0.593 |
 
-#### MIR TB-HIV
+#### New MIR TB-HIV
 ```
 X = df[['Country or territory name', 'Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent']]
 y = df[['MIR_TB_HIV_quartile']]
