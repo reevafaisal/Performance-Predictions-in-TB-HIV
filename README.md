@@ -226,7 +226,7 @@ y = df[['MIR_TB_HIV_quartile']]
 ## Final Model
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/three_graphs.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/three_graphs.html" width="800" height="200px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div> 
 
 **Additional Features**
