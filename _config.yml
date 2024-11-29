@@ -71,7 +71,10 @@ navigation:
         link: ./index.html#new-mir-tb
       - name: New MIR TB-HIV
         link: ./index.html#new-mir-tb-hiv
-  
+  - name: Key Findings
+    link: ./index.html#key-findings
+  - name: Conclusion
+    link: ./index.html#conclusion
              
   # - name: Data Retrieval and Parsing using Web Scraping and APIs
   #   link: ./index.html#data-retrieval-and-parsing-using-web-scraping-and-apis
