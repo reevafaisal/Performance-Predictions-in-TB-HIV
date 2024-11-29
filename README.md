@@ -262,10 +262,10 @@ auc_scorer = make_scorer(roc_auc_score, needs_proba=True, multi_class="ovr", ave
 grid_search = GridSearchCV(
     estimator=pipeline,
     param_grid=param_grid,
-    cv=2,  # 2-fold cross-validation
-    scoring=auc_scorer,  # Use accuracy for evaluation
-    verbose=1,  # Display progress
-    n_jobs=-1  # Use all available cores
+    cv=2,  
+    scoring=auc_scorer, 
+    verbose=1,  
+    n_jobs=-1 
 )
 ```
 
