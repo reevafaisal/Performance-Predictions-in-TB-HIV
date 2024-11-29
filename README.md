@@ -87,9 +87,9 @@ Through the scatterplot below, we observe that the rate of decrease in the case 
   <iframe src="assets/Scatter.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div> 
 
-#### Detection to Prevalence Ratio (DPR)
+#### Detection to Prevalence Ratio
 
-To provide some more insight, I calculated DPRs and grouped them by region to understand the relationships between MIRs and DPRs amongst different regions.
+To provide some more insight, I calculated detection-to-prevalence ratios (DPRs) and grouped them by region to understand the relationships between MIRs and DPRs amongst different regions.
 
 ```
 df['DPR'] = df['Case detection rate (all forms), percent'] / df['Estimated prevalence of TB (all forms)']
