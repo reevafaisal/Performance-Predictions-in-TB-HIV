@@ -81,7 +81,7 @@ The closer the MIR is to 1, the higher the mortality rate. From the plots below,
 
 #### CDR vs MIRs
 
-Through the scatterplot below, we observe that the rate of decrease in the case detection rate is much higher in countries with a dual burden of TB and HIV. This suggests that the presence of dual burden cases will have a significant impact on our model, given the strong correlation detected between the case detection rate and mortality outcomes.
+Through the scatterplot below, we observe that the rate of decrease in the case detection rate is much higher in countries with a dual burden of TB and HIV. This suggests that the presence of dual burden cases will have a large impact on our model, given the strong correlation detected between the case detection rate and mortality outcomes.
 
 <div style="margin-bottom: 5px;">
   <iframe src="assets/Scatter.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
@@ -111,7 +111,7 @@ grouped_table = df.groupby(['Region']).agg(
 | WPR      |       1.60893e+06 | 0.345882   |     0.0853927 |          0.170309 |
 
 - Using the data above, we can see a clear inverse relationship between DPRs and MIRs, demonstrating early detection's critical role in reducing mortality outcomes. Regions like the Americas (AMR) and Europe (EUR), with the highest DPRs (4.478 and 2.153, respectively), report the lowest mean TB MIRs (0.067 and 0.068) and mean TB-HIV MIRs (0.197 and 0.148). This demonstrates how early detection of TB cases, enables timely treatment and lowers mortality rates. 
-- Conversely, regions like South-East Asia (SEA) and Eastern Mediterranean (EMR) suffer from significantly low DPRs (0.0063 and 0.226), which align with their relatively high TB MIRs (0.122 and 0.134) and TB-HIV MIRs (0.246 and 0.301).
+- Conversely, regions like South-East Asia (SEA) and Eastern Mediterranean (EMR) suffer from low DPRs (0.0063 and 0.226), which align with their relatively high TB MIRs (0.122 and 0.134) and TB-HIV MIRs (0.246 and 0.301).
 - These figures highlight a diagnostic gap, where undetected cases progress to severe or fatal outcomes. Africa (AFR), with a moderate DPR (0.768), still records a high TB-HIV MIR (0.307), reflecting additional challenges in managing the dual burden cases. 
 
 ### Framing a Prediction Problem
@@ -355,7 +355,7 @@ y = df[['MIR_TB_HIV_quartile']]
 
 ### Key Findings
 - Impact of CDR on Mortality Prediction:
-   - Including CDR as a feature significantly improved model performance across both MIR TB and MIR TB-HIV, highlighting its predictive power in reducing mortality outcomes.
+   - Including CDR as a feature improved model performance across both MIR TB and MIR TB-HIV, highlighting its predictive power in reducing mortality outcomes.
    - In countries with dual TB-HIV burdens, the presence of CDR yielded notable improvements in sensitivity and AUC, indicating the importance of early case detection in mitigating mortality.
 - Differences Between MIR TB and MIR TB-HIV:
    - Models predicting MIR TB-HIV consistently outperformed those predicting MIR TB, likely due to the higher variability and complexity in dual-burden mortality outcomes.
