@@ -139,8 +139,9 @@ The goal of this analysis is to evaluate **the predictive power of CDR in determ
 
 To prepare the data for performing the logistic regression, I binned the MIRs by percentiles so as not to under-assign or over-assign values to specific bins.
 ```
-df['MIR_TB_quartile'] = pd.qcut(df['MIR_TB'], q=4, labels=[1, 2, 3, 4])
-df['MIR_TB_HIV_quartile'] = pd.qcut(df['MIR_TB_HIV'], q=4, labels=[1, 2, 3, 4])
+quartile_discretizer = KBinsDiscretizer(n_bins=4, encode='ordinal', strategy='quantile')
+df['MIR_TB_quartile'] = quartile_discretizer.fit_transform(df[['MIR_TB']]).astype(int) + 1
+df['MIR_TB_HIV_quartile'] = quartile_discretizer.fit_transform(df[['MIR_TB_HIV']]).astype(int) + 1
 ```
 
 **Defining the Logistic Regression model**
@@ -173,10 +174,10 @@ y = df[['MIR_TB_quartile']]
 
    |   Class |   Precision |   Recall |   F1-Score |   Sensitivity |   Specificity |   Macro-Average AUC |
    |--------:|------------:|---------:|-----------:|--------------:|--------------:|--------------------:|
-   |       1 |        0.29 |     0.80 |       0.42 |          0.80 |          0.57 |                0.62 |
-   |       2 |        0.50 |     0.29 |       0.36 |          0.29 |          0.90 |                0.62 |
-   |       3 |        0.00 |     0.00 |       0.00 |          0.00 |          0.85 |                0.62 |
-   |       4 |        0.57 |     0.5  |       0.53 |          0.50 |          0.85 |                0.62 |
+   |       1 |       0.333 |    0.8   |      0.471 |         0.8   |         0.652 |               0.608 |
+   |       2 |       0.429 |    0.429 |      0.429 |         0.429 |         0.81  |               0.608 |
+   |       3 |       0     |    0     |      0     |         0     |         0.95  |               0.608 |
+   |       4 |       0.625 |    0.625 |      0.625 |         0.625 |         0.85  |               0.608 |
 
 - Model 2: MIR TB without CDR
    ```
@@ -186,10 +187,10 @@ y = df[['MIR_TB_quartile']]
    
    |   Class |   Precision |   Recall |   F1-Score |   Sensitivity |   Specificity |   Macro-Average AUC |
    |--------:|------------:|---------:|-----------:|--------------:|--------------:|--------------------:|
-   |       1 |        0.19 |     0.80 |       0.31 |          0.80 |          0.26 |                0.60 |
-   |       2 |        0.67 |     0.29 |       0.40 |          0.29 |          0.95 |                0.60 |
-   |       3 |        0.00 |     0.00 |       0.00 |          0.00 |          0.90 |                0.60 |
-   |       4 |        0.00 |     0.00 |       0.00 |          0.00 |          0.90 |                0.60 |
+   |       1 |       0.19  |    0.8   |      0.308 |         0.8   |         0.261 |               0.564 |
+   |       2 |       0.667 |    0.286 |      0.4   |         0.286 |         0.952 |               0.564 |
+   |       3 |       0     |    0     |      0     |         0     |         0.95  |               0.564 |
+   |       4 |       0     |    0     |      0     |         0     |         0.85  |               0.564 |
 
 #### MIR TB-HIV
 ```
@@ -204,10 +205,10 @@ y = df[['MIR_TB_HIV_quartile']]
    
    |   Class |   Precision |   Recall |   F1-Score |   Sensitivity |   Specificity |   Macro-Average AUC |
    |--------:|------------:|---------:|-----------:|--------------:|--------------:|--------------------:|
-   |       1 |        0.54 |     0.88 |       0.67 |          0.88 |          0.70 |                0.84 |
-   |       2 |        0.75 |     0.38 |       0.50 |          0.38 |          0.95 |                0.84 |
-   |       3 |        0.60 |     0.60 |       0.60 |          0.60 |          0.91 |                0.84 |
-   |       4 |        1.00 |     0.86 |       0.92 |          0.86 |          1.00 |                0.84 |
+   |       1 |       0.538 |    0.875 |      0.667 |         0.875 |         0.7   |               0.856 |
+   |       2 |       1     |    0.375 |      0.545 |         0.375 |         1     |               0.856 |
+   |       3 |       0.6   |    0.6   |      0.6   |         0.6   |         0.913 |               0.856 |
+   |       4 |       0.857 |    0.857 |      0.857 |         0.857 |         0.952 |               0.856 |
   
 - Model 2: MIR TB-HIV without CDR
    ```
@@ -217,11 +218,98 @@ y = df[['MIR_TB_HIV_quartile']]
    
    |   Class |   Precision |   Recall |   F1-Score |   Sensitivity |   Specificity |   Macro-Average AUC |
    |--------:|------------:|---------:|-----------:|--------------:|--------------:|--------------------:|
-   |       1 |        0.41 |     0.88 |       0.56 |          0.88 |          0.50 |                0.67 |
-   |       2 |        0.00 |     0.00 |       0.00 |          0.00 |          0.90 |                0.67 |
-   |       3 |        0.22 |     0.40 |       0.29 |          0.40 |          0.70 |                0.67 |
-   |       4 |        0.00 |     0.00 |       0.00 |          0.00 |          1.00 |                0.67 |
+   |       1 |       0.368 |    0.875 |      0.519 |         0.875 |         0.4   |               0.693 |
+   |       2 |       0.333 |    0.125 |      0.182 |         0.125 |         0.9   |               0.693 |
+   |       3 |       0     |    0     |      0     |         0     |         1     |               0.693 |
+   |       4 |       0.5   |    0.429 |      0.462 |         0.429 |         0.857 |               0.693 |
 
+## Final Model
+
+<div style="margin-bottom: 5px;">
+  <iframe src="assets/Scatter.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+</div> 
+
+**Additional Features**
+
+For the new model, I Log transformed the Reduces skewness in Estimated total population number, making it easier for the model to identify patterns.
+Quantile Transformation:
+
+Normalizes Estimated prevalence of TB (all forms) to a uniform distribution, making it robust to outliers and non-linear relationships.
+```
+log_transformer = FunctionTransformer(np.log1p, validate=True)
+quantile_transformer = QuantileTransformer(output_distribution='uniform', random_state=42)
+
+numeric_transformer = ColumnTransformer(
+    transformers=[
+        ("log", log_transformer, ['Estimated total population number', 'Estimated prevalence of TB (all forms)']),
+        ("quantile", quantile_transformer, ['Case detection rate (all forms), percent']),
+        ("scaler", StandardScaler(), numeric_features)  # Standard scaling for all numeric features
+    ]
+)
+```
+
+#### MIR TB
+```
+X = df[['Country or territory name', 'Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent']]
+y = df[['MIR_TB_quartile']]
+```
+
+- Model 1: MIR TB with CDR
+   ```
+   numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent'] 
+   categorical_features = ['Country or territory name'] 
+   ```
+
+   |   Class |   Precision |   Recall |   F1-Score |   Sensitivity |   Specificity |   Macro-Average AUC |
+   |--------:|------------:|---------:|-----------:|--------------:|--------------:|--------------------:|
+   |       1 |       0.286 |    0.8   |      0.421 |         0.8   |         0.565 |               0.686 |
+   |       2 |       0.75  |    0.429 |      0.545 |         0.429 |         0.952 |               0.686 |
+   |       3 |       0     |    0     |      0     |         0     |         1     |               0.686 |
+   |       4 |       0.6   |    0.75  |      0.667 |         0.75  |         0.8   |               0.686 |
+
+- Model 2: MIR TB without CDR
+   ```
+   numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)'] 
+   categorical_features = ['Country or territory name'] 
+   ```
+   
+   |   Class |   Precision |   Recall |   F1-Score |   Sensitivity |   Specificity |   Macro-Average AUC |
+   |--------:|------------:|---------:|-----------:|--------------:|--------------:|--------------------:|
+   |       1 |       0.286 |     0.8  |      0.421 |          0.8  |         0.565 |               0.593 |
+   |       2 |       0     |     0    |      0     |          0    |         1     |               0.593 |
+   |       3 |       0     |     0    |      0     |          0    |         1     |               0.593 |
+   |       4 |       0.429 |     0.75 |      0.545 |          0.75 |         0.6   |               0.593 |
+
+#### MIR TB-HIV
+```
+X = df[['Country or territory name', 'Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent']]
+y = df[['MIR_TB_HIV_quartile']]
+```
+- Model 1: MIR TB-HIV with CDR
+   ```
+   numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent'] 
+   categorical_features = ['Country or territory name'] 
+   ```
+   
+   |   Class |   Precision |   Recall |   F1-Score |   Sensitivity |   Specificity |   Macro-Average AUC |
+   |--------:|------------:|---------:|-----------:|--------------:|--------------:|--------------------:|
+   |       1 |       0.667 |    0.5   |      0.571 |         0.5   |         0.9   |               0.869 |
+   |       2 |       0.5   |    0.75  |      0.6   |         0.75  |         0.7   |               0.869 |
+   |       3 |       0.5   |    0.4   |      0.444 |         0.4   |         0.913 |               0.869 |
+   |       4 |       1     |    0.857 |      0.923 |         0.857 |         1     |               0.869 |
+  
+- Model 2: MIR TB-HIV without CDR
+   ```
+   numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)'] 
+   categorical_features = ['Country or territory name'] 
+   ```
+   
+   |   Class |   Precision |   Recall |   F1-Score |   Sensitivity |   Specificity |   Macro-Average AUC |
+   |--------:|------------:|---------:|-----------:|--------------:|--------------:|--------------------:|
+   |       1 |       0.556 |    0.625 |      0.588 |         0.625 |         0.8   |               0.709 |
+   |       2 |       0.286 |    0.25  |      0.267 |         0.25  |         0.75  |               0.709 |
+   |       3 |       0.25  |    0.2   |      0.222 |         0.2   |         0.87  |               0.709 |
+   |       4 |       0.625 |    0.714 |      0.667 |         0.714 |         0.857 |               0.709 |
 
 
   
