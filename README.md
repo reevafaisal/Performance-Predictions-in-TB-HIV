@@ -196,7 +196,7 @@ y = df[['MIR_TB_quartile']]
 X = df[['Country or territory name', 'Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent']]
 y = df[['MIR_TB_HIV_quartile']]
 ```
-- Model 1: MIR TB with CDR
+- Model 1: MIR TB-HIV with CDR
    ```
    numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)', 'Case detection rate (all forms), percent'] 
    categorical_features = ['Country or territory name'] 
@@ -209,7 +209,7 @@ y = df[['MIR_TB_HIV_quartile']]
    |       3 |        0.60 |     0.60 |       0.60 |          0.60 |          0.91 |                0.84 |
    |       4 |        1.00 |     0.86 |       0.92 |          0.86 |          1.00 |                0.84 |
   
-- Model 2: MIR TB without CDR
+- Model 2: MIR TB-HIV without CDR
    ```
    numeric_features = ['Estimated total population number', 'Estimated prevalence of TB (all forms)'] 
    categorical_features = ['Country or territory name'] 
