@@ -247,6 +247,7 @@ numeric_transformer = ColumnTransformer(
 #### Modeling Algorithm
 - For this task, we used Logistic Regression as the modeling algorithm, leveraging its suitability for multiclass classification through softmax regression.
 - I used GridSearchCV,to select the hyper parameters. This method performs cross-validation (2-fold in our case) for each combination of hyperparameters and evaluates performance using an AUC scorer.
+
 ```
 param_grid = {
     "logistic__C": [0.01, 0.1, 1, 10, 100],  
