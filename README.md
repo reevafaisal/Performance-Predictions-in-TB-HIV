@@ -6,7 +6,7 @@ The dataset, [Tuberculosis Burden by Country](https://public.tableau.com/app/sam
 <p>
 Before any cleaning, the dataset contains 5120 rows. 
 The following columns are relevant to the analysis:
-</p>
+</p> 
 
 1. **Country or territory name**  
    - The name of the country. 
