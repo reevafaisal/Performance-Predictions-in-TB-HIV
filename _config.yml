@@ -45,7 +45,7 @@ navigation:
       - name: CDR vs MIRs
         link: ./index.html#cdr-vs-mirs
       - name: Detection to Prevalence Ratio 
-        link: ./index.html#detection-to-prevalence-ratio-(DPR)
+        link: ./index.html#detection-to-prevalence-ratio-%28dpr%29
   - name: Framing a Prediction Problem
     link: ./index.html#framing-a-prediction-problem
     sublist:
