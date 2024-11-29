@@ -63,7 +63,7 @@ navigation:
       - name: MIR TB-HIV
         link: ./index.html#mir-tb-hiv
   - name: Final Model
-    link: ./index.html#baseline-model
+    link: ./index.html#final-model
     sublist:
       - name: MIR TB
         link: ./index.html#mir-tb
