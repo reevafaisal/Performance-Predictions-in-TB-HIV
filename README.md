@@ -355,14 +355,14 @@ y = df[['MIR_TB_HIV_quartile']]
 
 ### Key Findings
 - Impact of CDR on Mortality Prediction:
-   - Including CDR as a feature significantly improved model performance across both MIR_TB and MIR_TB_HIV, highlighting its predictive power in reducing mortality outcomes.
+   - Including CDR as a feature significantly improved model performance across both MIR TB and MIR TB-HIV, highlighting its predictive power in reducing mortality outcomes.
    - In countries with dual TB-HIV burdens, the presence of CDR yielded notable improvements in sensitivity and AUC, indicating the importance of early case detection in mitigating mortality.
-- Differences Between MIR_TB and MIR_TB_HIV:
-   - Models predicting MIR_TB-HIV consistently outperformed those predicting MIR_TB, likely due to the higher variability and complexity in dual-burden mortality outcomes.
-   - MIR_TB-HIV models achieved higher precision, recall, and AUC values, suggesting that the dual-burden dataset contains more actionable patterns for logistic regression.
+- Differences Between MIR TB and MIR TB-HIV:
+   - Models predicting MIR TB-HIV consistently outperformed those predicting MIR TB, likely due to the higher variability and complexity in dual-burden mortality outcomes.
+   - MIR TB-HIV models achieved higher precision, recall, and AUC values, suggesting that the dual-burden dataset contains more actionable patterns for logistic regression.
 - Role of Regularization and Solvers:
-   - liblinear solver with L1 regularization performed better for MIR_TB predictions, where sparsity was beneficial for the simpler relationships in the dataset.
-   - lbfgs solver with L2 regularization excelled in MIR_TB-HIV predictions, as it preserved subtle relationships among features in a more complex dataset.
+   - liblinear solver with L1 regularization performed better for MIR TB predictions, where sparsity was beneficial for the simpler relationships in the dataset.
+   - lbfgs solver with L2 regularization excelled in MIR TB-HIV predictions, as it preserved subtle relationships among features in a more complex dataset.
 
 ### Conclusion
 This study demonstrates that incorporating Case Detection Rate (CDR) and applying feature engineering techniques like log and quantile transformations substantially improve the predictive power of logistic regression models for mortality outcomes in TB and TB-HIV patients. The findings underscore the critical role of early detection systems in reducing mortality and provide actionable insights for public health policies aimed at addressing TB and HIV's dual burden globally.
