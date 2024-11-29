@@ -44,8 +44,8 @@ navigation:
         link: ./index.html#mir_tb-vs-mir_tb_hiv
       - name: CDR vs MIRs
         link: ./index.html#cdr-vs-mirs
-      - name: Detection to Prevalence Ratio
-        link: ./index.html#detection-to-prevalence-ratio-(dpr)
+      - name: Detection to Prevalence Ratio 
+        link: ./index.html#detection-to-prevalence-ratio-(DPR)
   - name: Framing a Prediction Problem
     link: ./index.html#framing-a-prediction-problem
     sublist:
