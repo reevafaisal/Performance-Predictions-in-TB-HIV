@@ -66,9 +66,9 @@ navigation:
     link: ./index.html#final-model
     sublist:
       - name: MIR TB
-        link: ./index.html#mir-tb
+        link: ./index.html#new-mir-tb
       - name: MIR TB-HIV
-        link: ./index.html#mir-tb-hiv
+        link: ./index.html#new-mir-tb-hiv
   
              
   # - name: Data Retrieval and Parsing using Web Scraping and APIs
