@@ -65,9 +65,9 @@ navigation:
   - name: Final Model
     link: ./index.html#final-model
     sublist:
-      - name: MIR TB
+      - name: New MIR TB
         link: ./index.html#new-mir-tb
-      - name: MIR TB-HIV
+      - name: New MIR TB-HIV
         link: ./index.html#new-mir-tb-hiv
   
              
