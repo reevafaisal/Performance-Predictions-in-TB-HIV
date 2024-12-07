@@ -290,7 +290,7 @@ y = df[['MIR_TB_quartile']]
 
    Best performing hyperparameters:
    ```
-   {'logistic__C': 0.1, 'logistic__max_iter': 100, 'logistic__multi_class': 'ovr', 'logistic__penalty': 'l1', 'logistic__solver': 'liblinear'}
+   {'logistic__C': 0.1, 'logistic__max_iter': 200, 'logistic__multi_class': 'ovr', 'logistic__penalty': 'l1', 'logistic__solver': 'liblinear'}
    ```
 
 
@@ -350,7 +350,7 @@ y = df[['MIR_TB_HIV_quartile']]
 
    Best performing hyperparameters:
    ```
-   {'logistic__C': 100, 'logistic__max_iter': 100, 'logistic__multi_class': 'ovr', 'logistic__penalty': 'l2', 'logistic__solver': 'lbfgs'}
+   {'logistic__C': 100, 'logistic__max_iter': 100, 'logistic__multi_class': 'multinomial', 'logistic__penalty': 'l2', 'logistic__solver': 'lbfgs'}
    ```
 
 ### Key Findings
