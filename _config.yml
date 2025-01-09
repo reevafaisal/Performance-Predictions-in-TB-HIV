@@ -9,7 +9,7 @@ github_button: true
 favicon: true 
 plugins:  
   - jekyll-remote-theme 
-color-scheme: dark
+color-scheme: light
 # plugins:
 #   - jekyll-sitemap  
 #   - jekyll-seo-tag
